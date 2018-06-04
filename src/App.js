@@ -1,18 +1,54 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
 
 class App extends Component {
+  state = {
+    isLoading: false,
+  }
+
+  componentDidMount = () => {
+    this.handleResumeRequest();
+  }
+
+  handleResumeRequest = async () => {
+    this.setState({ isLoading: true });
+    try {
+      const resume = await this.props.firebase.getResume();
+      this.handleResumeRequestSuccess({ resume });
+    } catch (err) {
+      this.handleResumeRequestFail({ message: err.message });
+    }
+  }
+
+  handleResumeRequestSuccess = ({ resume }) => {
+    this.setState({
+      isLoading: false,
+      ...this.mapResumeToState(resume),
+    });
+  }
+
+  handleResumeRequestFail = ({ message }) => {
+    this.setState({
+      isLoading: false,
+      errMessage: message,
+    });
+  }
+
+  mapResumeToState = ({
+    personal_info,
+    careers,
+    educations,
+  }) => {
+    return {
+      personalInfo: personal_info,
+      careers,
+      educations,
+    };
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>Online Resume
       </div>
     );
   }
