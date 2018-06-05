@@ -1,5 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
+import {
+  Abilities,
+  Careers,
+} from './components';
 
 class App extends Component {
   state = {
@@ -48,8 +52,10 @@ class App extends Component {
 
   render() {
     return (
-      <div>Online Resume
-      </div>
+      <Fragment>
+        <Abilities />
+        <Careers />
+      </Fragment>
     );
   }
 }
