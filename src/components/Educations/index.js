@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Section } from '../../ui';
 
-export default function Abilities(props) {
+export default function Educations(props) {
   return (
     <Section title="Educations">
     </Section>
