@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import {
   Abilities,
   Careers,
+  Educations,
 } from './components';
 
 class App extends Component {
@@ -55,6 +56,7 @@ class App extends Component {
       <Fragment>
         <Abilities />
         <Careers />
+        <Educations />
       </Fragment>
     );
   }
