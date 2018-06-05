@@ -4,6 +4,7 @@ import {
   Abilities,
   Careers,
   Educations,
+  Personal,
 } from './components';
 
 class App extends Component {
@@ -54,6 +55,7 @@ class App extends Component {
   render() {
     return (
       <Fragment>
+        <Personal />
         <Abilities />
         <Careers />
         <Educations />
