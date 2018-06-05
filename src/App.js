@@ -5,6 +5,7 @@ import {
   Careers,
   Educations,
   Personal,
+  Projects,
 } from './components';
 
 class App extends Component {
@@ -59,6 +60,7 @@ class App extends Component {
         <Abilities />
         <Careers />
         <Educations />
+        <Projects />
       </Fragment>
     );
   }
