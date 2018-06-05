@@ -6,6 +6,8 @@ import {
   Educations,
   Personal,
   Projects,
+  Header,
+  Footer,
 } from './components';
 
 class App extends Component {
@@ -56,11 +58,13 @@ class App extends Component {
   render() {
     return (
       <Fragment>
+        <Header />
         <Personal />
         <Abilities />
         <Careers />
         <Educations />
         <Projects />
+        <Footer />
       </Fragment>
     );
   }

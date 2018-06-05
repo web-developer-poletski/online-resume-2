@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Section } from '../../ui';
 
-export function Header(props) {
+export default function Header(props) {
   return (
     <Section title="Header"/>
   );
