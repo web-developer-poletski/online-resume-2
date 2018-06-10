@@ -11,9 +11,17 @@ const Column = styled.div`
 Personal.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
-  loaction: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
   personalStatement: PropTypes.string.isRequired,
   photoURL: PropTypes.string.isRequired,
+};
+
+Personal.defaultProps = {
+  firstName: '',
+  lastName: '',
+  location: '',
+  personalStatement: '',
+  photoURL: '',
 };
 
 export default function Personal(props) {
