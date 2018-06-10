@@ -27,4 +27,9 @@ describe('<Personal />', () => {
     const wrapper = render(<Personal location="Planet Earth"/>);
     expect(wrapper.text()).toContain('Planet Earth');
   });
+
+  it('renders a person`s photo with the given url', () => {
+    const wrapper = render(<Personal photoURL="http://some.place/photo.png"/>);
+    expect(wrapper.find('img[src="http://some.place/photo.png"]')).toHaveLength(1);
+  });
 });
