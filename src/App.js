@@ -19,6 +19,10 @@ class App extends Component {
     this.handleResumeRequest();
   }
 
+  get personalInfo() {
+    return this.extractPersonalInfo(this.state);
+  }
+
   handleResumeRequest = async () => {
     this.setState({ isLoading: true });
     try {
@@ -43,26 +47,50 @@ class App extends Component {
     });
   }
 
+  /**
+   * Extracts required person`s fields from a person storing object
+   */
+  extractPersonalInfo = ({
+    firstName,
+    lastName,
+    personalStatement,
+    location,
+    photoURL,
+  }) => {
+    return {
+      firstName,
+      lastName,
+      personalStatement,
+      location,
+      photoURL,
+    };
+  }
+
   mapResumeToState = ({
     personal_info,
     careers,
     educations,
   }) => {
     return {
-      personalInfo: personal_info,
+      ...this.extractPersonalInfo(personal_info[0]),
       careers,
       educations,
     };
   }
 
   render() {
+    const {
+      careers,
+      educations,
+    } = this.state;
+
     return (
       <Fragment>
         <Header />
-        <Personal />
+        <Personal {...this.personalInfo} />
         <Abilities />
-        <Careers />
-        <Educations />
+        <Careers careers={careers} />
+        <Educations educations={educations} />
         <Projects />
         <Footer />
       </Fragment>
