@@ -33,7 +33,7 @@ describe('<Career />', () => {
     expect(wrapper.contains(<a href="http://a-company.com"></a>)).toEqual(true);
   });
 
-  it('renders carerr employer link text', () => {
+  it('renders career employer link text', () => {
     const wrapper = shallow(<Career employerURLText='a-company corporate website' />);
     expect(wrapper.text()).toContain('a-company corporate website');
   });
