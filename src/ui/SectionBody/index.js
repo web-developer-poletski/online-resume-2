@@ -11,4 +11,6 @@ const SectionBody = styled.div`
   }};
 `;
 
+SectionBody.displayName = 'SectionBody';
+
 export default SectionBody;
