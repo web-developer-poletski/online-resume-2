@@ -4,4 +4,6 @@ const SectionWrapper = styled.section`
   
 `;
 
+SectionWrapper.displayName = 'SectionWrapper';
+
 export default SectionWrapper;
