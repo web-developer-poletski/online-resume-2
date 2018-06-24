@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-Career.propTypes = {
+export const propTypes = {
   position: PropTypes.string.isRequired,
   employerName: PropTypes.string.isRequired,
   employmentType: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   employerURL: PropTypes.string,
   employerURLText: PropTypes.string,
-};
+}
+
+Career.propTypes = propTypes;
 
 Career.defaultProps = {
   position: '',
