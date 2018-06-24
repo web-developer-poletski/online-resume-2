@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import SectionBody from '../SectionBody';
 import SectionContainer from '../SectionContainer';
 import SectionTitle from '../SectionTitle';
 import SectionSubtitle from '../SectionSubtitle';
 import SectionWrapper from '../SectionWrapper';
-
 
 Section.propTypes = {
   children: PropTypes.oneOfType([
@@ -13,6 +13,7 @@ Section.propTypes = {
     PropTypes.element,
     PropTypes.string,
   ]),
+  align: PropTypes.string,
   title: PropTypes.string,
 };
 
@@ -28,10 +29,12 @@ export default function Section(props) {
   return (
     <SectionWrapper>
       <SectionContainer>
-
         {title && <SectionTitle>{title}</SectionTitle>}
-
-        {children}
+        
+        <SectionBody align={props.align}>
+          {children}
+        </SectionBody>
+      
       </SectionContainer>
     </SectionWrapper>
   );
