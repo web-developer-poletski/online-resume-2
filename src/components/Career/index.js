@@ -1,5 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const CareerWrapper = styled.div`
+  display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content: flex-end;
+`;
+
+CareerWrapper.displayName = 'CareerWrapper';
+
+
+const CareerPosition = styled.h4`
+  flex: 75%;
+  order: 1;
+`;
+
+CareerPosition.displayName = 'CareerPosition';
+
+
+const CareerEmployerName = styled.h4`
+  flex: 25%;
+  order: 2;
+`;
+
+CareerEmployerName.displayName = 'CareerEmployerName';
+
+
+const CareerEmploymentType = styled.p`
+  flex: 75%;
+  order: 3;
+  margin-left: 25%;
+`;
+
+CareerEmploymentType.displayName = 'CareerEmploymentType';
+
+
+const CareerDescription = styled.p`
+  flex: 75%;
+  order: 4;
+  margin-left: 25%;
+`;
+
+CareerDescription.displayName = 'CareerDescription';
+
+const CareerURL = styled.p`
+  flex: 75%;
+  order: 5;
+  margin-left: 25%;
+`;
+
+CareerDescription.displayName = 'CareerURL';
 
 export const propTypes = {
   position: PropTypes.string.isRequired,
@@ -8,7 +59,7 @@ export const propTypes = {
   description: PropTypes.string.isRequired,
   employerURL: PropTypes.string,
   employerURLText: PropTypes.string,
-}
+};
 
 Career.propTypes = propTypes;
 
@@ -21,12 +72,14 @@ Career.defaultProps = {
 
 export default function Career(props) {
   return (
-    <div>
-      <h4>{props.position}</h4>
-      <p>{props.employerName}</p>
-      <p>{props.employmentType}</p>
-      <p>{props.description}</p>
-      <a href={props.employerURL}>{props.employerURLText}</a>
-    </div>
+    <CareerWrapper>
+      <CareerEmployerName>{props.employerName}</CareerEmployerName>
+      <CareerPosition>{props.position}</CareerPosition>
+      <CareerEmploymentType>{props.employmentType}</CareerEmploymentType>
+      <CareerDescription>{props.description}</CareerDescription>
+      <CareerURL>
+        <a href={props.employerURL}>{props.employerURLText}</a>
+      </CareerURL>
+    </CareerWrapper>
   );
 } 
