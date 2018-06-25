@@ -10,12 +10,12 @@ import {
   Personal,
   Projects,
   Header,
-  Footer,
+  Footer
 } from './components';
 
 class App extends Component {
   state = {
-    isLoading: false,
+    isLoading: false
   }
 
   componentDidMount = () => {
@@ -31,7 +31,10 @@ class App extends Component {
       isLoading: true
     });
     try {
-      const resume = await this.props.firebase.getResume();
+      const resume = await this
+        .props
+        .firebase
+        .getResume();
       this.handleResumeRequestSuccess({
         resume
       });
@@ -47,7 +50,7 @@ class App extends Component {
   }) => {
     this.setState({
       isLoading: false,
-      ...this.mapResumeToState(resume),
+      ...this.mapResumeToState(resume)
     });
   }
 
@@ -56,7 +59,7 @@ class App extends Component {
   }) => {
     this.setState({
       isLoading: false,
-      errMessage: message,
+      errMessage: message
     });
   }
 
@@ -68,60 +71,47 @@ class App extends Component {
     lastName,
     personalStatement,
     location,
-    photoURL,
+    photoURL
   }) => {
     return {
       firstName,
       lastName,
       personalStatement,
       location,
-      photoURL,
+      photoURL
     };
   }
 
   mapResumeToState = ({
     personal_info,
     careers,
-    educations,
+    educations
   }) => {
     return {
       ...this.extractPersonalInfo(personal_info[0]),
       careers,
-      educations,
+      educations
     };
   }
 
   render() {
     const {
       careers,
-      educations,
+      educations
     } = this.state;
 
-    return ( <
-      Fragment >
-      <
-      Header / >
-      <
-      Personal { ...this.personalInfo
-      }
-      /> <
-      Abilities / >
-      <
-      Careers careers = {
-        careers
-      }
-      /> <
-      Educations educations = {
-        educations
-      }
-      /> <
-      Projects / >
-      <
-      Footer / >
-      <
-      /Fragment>
-    );
-  }
+    return (
+      <Fragment>
+        <Header />
+        <Personal {...this.personalInfo} />
+        <Abilities />
+        <Careers careers={careers} />
+        <Educations educations={educations} />
+        <Projects />
+        <Footer />
+      </Fragment>
+  );
+}
 }
 
 export default App;

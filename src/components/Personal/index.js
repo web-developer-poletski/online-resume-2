@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Section } from '../../ui';
+import {Section} from '../../ui';
 
-const Column = styled.div`
+const Column = styled.div `
   flex: 1;
 `;
 
@@ -13,7 +13,7 @@ Personal.propTypes = {
   lastName: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   personalStatement: PropTypes.string.isRequired,
-  photoURL: PropTypes.string.isRequired,
+  photoURL: PropTypes.string.isRequired
 };
 
 Personal.defaultProps = {
@@ -21,7 +21,7 @@ Personal.defaultProps = {
   lastName: '',
   location: '',
   personalStatement: '',
-  photoURL: '',
+  photoURL: ''
 };
 
 export default function Personal(props) {
@@ -35,7 +35,7 @@ export default function Personal(props) {
       </Column>
 
       <Column>
-        <img src={props.photoURL} alt="" />
+        <img src={props.photoURL} alt=""/>
       </Column>
 
       <Column>
