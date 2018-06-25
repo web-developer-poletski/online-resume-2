@@ -1,9 +1,11 @@
 import React from 'react';
 
-import { Section } from '../../ui';
+import {
+  Section
+} from '../../ui';
 
 export default function Header(props) {
-  return (
-    <Section title="Header"/>
+  return ( <
+    Section title = "Header" / >
   );
 }

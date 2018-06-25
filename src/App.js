@@ -1,4 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, {
+  Component,
+  Fragment
+} from 'react';
 
 import {
   Abilities,
@@ -24,23 +27,33 @@ class App extends Component {
   }
 
   handleResumeRequest = async () => {
-    this.setState({ isLoading: true });
+    this.setState({
+      isLoading: true
+    });
     try {
       const resume = await this.props.firebase.getResume();
-      this.handleResumeRequestSuccess({ resume });
+      this.handleResumeRequestSuccess({
+        resume
+      });
     } catch (err) {
-      this.handleResumeRequestFail({ message: err.message });
+      this.handleResumeRequestFail({
+        message: err.message
+      });
     }
   }
 
-  handleResumeRequestSuccess = ({ resume }) => {
+  handleResumeRequestSuccess = ({
+    resume
+  }) => {
     this.setState({
       isLoading: false,
       ...this.mapResumeToState(resume),
     });
   }
 
-  handleResumeRequestFail = ({ message }) => {
+  handleResumeRequestFail = ({
+    message
+  }) => {
     this.setState({
       isLoading: false,
       errMessage: message,
@@ -84,16 +97,29 @@ class App extends Component {
       educations,
     } = this.state;
 
-    return (
-      <Fragment>
-        <Header />
-        <Personal {...this.personalInfo} />
-        <Abilities />
-        <Careers careers={careers} />
-        <Educations educations={educations} />
-        <Projects />
-        <Footer />
-      </Fragment>
+    return ( <
+      Fragment >
+      <
+      Header / >
+      <
+      Personal { ...this.personalInfo
+      }
+      /> <
+      Abilities / >
+      <
+      Careers careers = {
+        careers
+      }
+      /> <
+      Educations educations = {
+        educations
+      }
+      /> <
+      Projects / >
+      <
+      Footer / >
+      <
+      /Fragment>
     );
   }
 }

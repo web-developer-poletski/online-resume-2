@@ -1,10 +1,13 @@
 import React from 'react';
 
-import { Section } from '../../ui';
+import {
+  Section
+} from '../../ui';
 
 export default function Educations(props) {
-  return (
-    <Section title="Educations">
-    </Section>
+  return ( <
+    Section title = "Educations" >
+    <
+    /Section>
   );
 }

@@ -2,7 +2,10 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 export default class Firebase {
-  constructor({ firebaseAppConfig, resumeConfig } = {}) {
+  constructor({
+    firebaseAppConfig,
+    resumeConfig
+  } = {}) {
     // Store resume config
     this.resumeConfig = resumeConfig;
 
@@ -11,7 +14,9 @@ export default class Firebase {
 
     // Initialize firebase database
     this.firestore = firebase.firestore();
-    this.firestore.settings({ timestampsInSnapshots: true });
+    this.firestore.settings({
+      timestampsInSnapshots: true
+    });
   }
 
   set resumeConfig(config) {
@@ -27,13 +32,18 @@ export default class Firebase {
   }
 
   getResume = async () => {
-    const { getCollection, resumeCollectionsNames } = this;
+    const {
+      getCollection,
+      resumeCollectionsNames
+    } = this;
     const promises = [];
 
     // Create a set of asynchronous requests
     // to fetch collections constituting resume
     resumeCollectionsNames.forEach((collectionName) => {
-      promises.push(getCollection({ collection: collectionName }));
+      promises.push(getCollection({
+        collection: collectionName
+      }));
     });
 
     // Wait for all the server responses
@@ -47,8 +57,12 @@ export default class Firebase {
     }, {});
   }
 
-  getCollection = ({ collection = null } = {}) => {
-    if (!collection) { return Promise.resolve([])};
+  getCollection = ({
+    collection = null
+  } = {}) => {
+    if (!collection) {
+      return Promise.resolve([])
+    };
 
     return this.firestore.collection(collection)
       .get()
