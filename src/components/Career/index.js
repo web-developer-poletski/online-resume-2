@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const CareerWrapper = styled.div`
   display: flex;
-  flex-flow: row-reverse wrap;
+  flex-flow: row wrap;
   justify-content: flex-end;
 `;
 
@@ -13,7 +13,8 @@ CareerWrapper.displayName = 'CareerWrapper';
 
 const CareerPosition = styled.h4`
   flex: 75%;
-  order: 1;
+  order: 2;
+  margin-bottom: 12px;
 `;
 
 CareerPosition.displayName = 'CareerPosition';
@@ -21,7 +22,8 @@ CareerPosition.displayName = 'CareerPosition';
 
 const CareerEmployerName = styled.h4`
   flex: 25%;
-  order: 2;
+  order: 1;
+  margin-bottom: 12px;
 `;
 
 CareerEmployerName.displayName = 'CareerEmployerName';
@@ -30,7 +32,7 @@ CareerEmployerName.displayName = 'CareerEmployerName';
 const CareerEmploymentType = styled.p`
   flex: 75%;
   order: 3;
-  margin-left: 25%;
+  margin: 0 0 8px 25%;
 `;
 
 CareerEmploymentType.displayName = 'CareerEmploymentType';
@@ -39,7 +41,7 @@ CareerEmploymentType.displayName = 'CareerEmploymentType';
 const CareerDescription = styled.p`
   flex: 75%;
   order: 4;
-  margin-left: 25%;
+  margin: 0 0 0 25%;
 `;
 
 CareerDescription.displayName = 'CareerDescription';
