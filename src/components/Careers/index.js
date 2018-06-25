@@ -14,7 +14,7 @@ Careers.defaultProps = {
 
 export default function Careers(props) {
   const careers = props.careers.map((career) => (
-    <Career key={career.id} {...career} />
+    <Career key={`${career.employerName}_${career.position}`} {...career} />
   ));
 
   return (

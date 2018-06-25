@@ -20,14 +20,12 @@ describe('<Careers />', () => {
 
       it('renders careers depending on the given data', () => {
           const FAKE_CAREERS = [{
-              id: '1',
               position: 'junior webmaster',
               employerName: 'green valley',
               employmentType: 'internship',
               description: 'Started doing awesome stuff',
             },
             {
-              id: '2',
               position: 'web developer',
               employerName: 'grey cliffs',
               employmentType: 'part-time',
@@ -37,7 +35,10 @@ describe('<Careers />', () => {
             }
           ];
 
-          const wrapper = shallow(<Careers careers={FAKE_CAREERS} />);
+          const wrapper = shallow( < Careers careers = {
+              FAKE_CAREERS
+            }
+            />);
             expect(wrapper.find(Career)).toHaveLength(FAKE_CAREERS.length);
           });
       });
