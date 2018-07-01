@@ -71,6 +71,7 @@ export const propTypes = {
 Career.propTypes = propTypes;
 
 Career.defaultProps = {
+  id: '',
   position: '',
   employerName: '',
   employmentType: '',
