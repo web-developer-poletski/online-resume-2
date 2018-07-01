@@ -34,10 +34,7 @@ describe('<Careers />', () => {
             employerURLText: 'Grey Cliffs corporate website'
           }];
 
-          const wrapper = shallow( < Careers careers = {
-              FAKE_CAREERS
-            }
-            />);
+          const wrapper = shallow(<Careers careers={FAKE_CAREERS}/>);
             expect(wrapper.find(Career)).toHaveLength(FAKE_CAREERS.length);
           });
       });
