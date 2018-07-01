@@ -59,6 +59,7 @@ const CareerURL = styled.a.attrs({
 CareerDescription.displayName = 'CareerURL';
 
 export const propTypes = {
+  id: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   employerName: PropTypes.string.isRequired,
   employmentType: PropTypes.string.isRequired,

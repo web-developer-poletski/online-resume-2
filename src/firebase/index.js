@@ -68,7 +68,10 @@ export default class Firebase {
       .get()
       .then((querySnapshot) => {
         const docs = [];
-        querySnapshot.forEach((doc) => docs.push(doc.data()));
+        querySnapshot.forEach((doc) => {
+          const docData = Object.assign({}, { id: doc.id }, {...doc.data()});
+          docs.push(docData);
+        });
         return docs;
       });
   }
