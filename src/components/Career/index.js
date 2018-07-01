@@ -46,10 +46,14 @@ const CareerDescription = styled.p`
 
 CareerDescription.displayName = 'CareerDescription';
 
-const CareerURL = styled.p`
+const CareerURL = styled.a.attrs({
+  href: ({ employerURL }) => employerURL || '',
+})`
   flex: 75%;
-  order: 5;
-  margin-left: 25%;
+  order: 5; 
+  margin: 8px 0 0 25%;
+  text-decoration: none;
+  color: inherit;
 `;
 
 CareerDescription.displayName = 'CareerURL';
@@ -79,8 +83,8 @@ export default function Career(props) {
       <CareerPosition>{props.position}</CareerPosition>
       <CareerEmploymentType>{props.employmentType}</CareerEmploymentType>
       <CareerDescription>{props.description}</CareerDescription>
-      <CareerURL>
-        <a href={props.employerURL}>{props.employerURLText}</a>
+      <CareerURL href={props.employerURL}>
+        {props.employerURLText}
       </CareerURL>
     </CareerWrapper>
   );
