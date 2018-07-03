@@ -72,12 +72,14 @@ export const propTypes = {
 
 Experience.propTypes = propTypes;
 
-Experience.defaultProps = {
+export const defaultProps = {
   id: '',
   title: '',
   brief: '',
   description: '',
 };
+
+Experience.defaultProps = defaultProps;
 
 export default function Experience({
   title,

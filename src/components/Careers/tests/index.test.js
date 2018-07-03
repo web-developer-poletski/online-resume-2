@@ -5,7 +5,7 @@ import {
 } from 'enzyme';
 
 import Careers from '../index';
-import Career from '../../Career';
+import { Experience } from '../../../ui';
 
 describe('<Careers />', () => {
       it('renders without crashing', () => {
@@ -35,6 +35,6 @@ describe('<Careers />', () => {
           }];
 
           const wrapper = shallow(<Careers careers={FAKE_CAREERS}/>);
-            expect(wrapper.find(Career)).toHaveLength(FAKE_CAREERS.length);
+            expect(wrapper.find(Experience)).toHaveLength(FAKE_CAREERS.length);
           });
       });
