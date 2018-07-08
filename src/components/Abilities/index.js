@@ -1,13 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
-  Section
+  Section,
+  SkillGroup,
 } from '../../ui';
 
-export default function Abilities(props) {
-  return ( <
-    Section title = "Abilities" >
-    <
-    /Section>
+export const propTypes = {
+  technicalSkills: PropTypes.array.isRequired,
+};
+
+export const defaultProps = {
+  technicalSkills: [],
+};
+
+export default function Abilities({ technicalSkills }) {
+  return (
+    <Section title="Abilities">
+      <SkillGroup
+        title="Technical Skills"
+        skills={technicalSkills}
+      />
+    </Section>
   );
 }
