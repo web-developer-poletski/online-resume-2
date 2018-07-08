@@ -21,5 +21,6 @@ export const resumeConfig = {
     'personal_info',
     'careers',
     'educations',
+    'technical_skills',
   ],
 }
