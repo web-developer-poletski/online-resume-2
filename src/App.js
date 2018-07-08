@@ -85,26 +85,29 @@ class App extends Component {
   mapResumeToState = ({
     personal_info,
     careers,
-    educations
+    educations,
+    technical_skills,
   }) => {
     return {
       ...this.extractPersonalInfo(personal_info[0]),
       careers,
-      educations
+      educations,
+      technicalSkills: technical_skills,
     };
   }
 
   render() {
     const {
       careers,
-      educations
+      educations,
+      technicalSkills,
     } = this.state;
 
     return (
       <Fragment>
         <Header />
         <Personal {...this.personalInfo} />
-        <Abilities />
+        <Abilities technicalSkills={technicalSkills} />
         <Careers careers={careers} />
         <Educations educations={educations} />
         <Projects />
