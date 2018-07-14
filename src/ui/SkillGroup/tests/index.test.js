@@ -47,30 +47,21 @@ describe('<SkillGroup />', () => {
     expect(wrapper.find(Skill)).toHaveLength(skills.length);
   });
 
-  it('renders skills into two lists', () => {
-    const wrapper = shallow(<SkillGroup skills={skills} />);
-    expect(wrapper.find(SkillGroup.List)).toHaveLength(2);
-  });
+  it('renders skills in defined order', () => {
+    const skillsOrderByIds = ['2', '3', '1', '5', '4'];
 
-  it('renders even number of skills equally into two lists', () => {
-    const skillsEven = skills.slice(0, 4);
-    const wrapper = shallow(<SkillGroup skills={skillsEven} />);
+    const wrapper = shallow(
+      <SkillGroup
+        skills={skills}
+        skillsOrderByIds={skillsOrderByIds}
+      />
+    );
 
-    expect(wrapper
-      .find(SkillGroup.List).first().shallow().find(Skill)).toHaveLength(2);
+    const renderedSkills = wrapper.find(Skill);
 
-    expect(wrapper
-      .find(SkillGroup.List).last().shallow().find(Skill)).toHaveLength(2);
-  });
-
-  it('renders odd number of skills into two lists, where the length of the first one is more by one', () => {
-    const skillsEven = skills.slice(0, 5);
-    const wrapper = shallow(<SkillGroup skills={skillsEven} />);
-
-    expect(wrapper
-      .find(SkillGroup.List).first().shallow().find(Skill)).toHaveLength(3);
-
-    expect(wrapper
-      .find(SkillGroup.List).last().shallow().find(Skill)).toHaveLength(2);
+    expect(skillsOrderByIds.every((id, indx) => {
+      const renderedSkill = renderedSkills.at(indx);
+      return renderedSkill.prop('id') === id;
+    })).toBe(true);
   });
 });

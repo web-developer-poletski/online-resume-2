@@ -18,6 +18,7 @@ export const firebaseAppConfig = {
 
 export const resumeConfig = {
   collectionsNames: [
+    'collections_meta',
     'personal_info',
     'careers',
     'educations',

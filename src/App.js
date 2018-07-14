@@ -83,16 +83,22 @@ class App extends Component {
   }
 
   mapResumeToState = ({
+    collections_meta,
     personal_info,
     careers,
     educations,
     technical_skills,
   }) => {
+    const technicalSkillsMeta = collections_meta.find(({ collectionName }) => {
+      return collectionName === 'technical_skills';
+    });
+
     return {
       ...this.extractPersonalInfo(personal_info[0]),
       careers,
       educations,
       technicalSkills: technical_skills,
+      technicalSkillsOrderByIds: technicalSkillsMeta.skillsOrderByIds,
     };
   }
 
@@ -101,13 +107,17 @@ class App extends Component {
       careers,
       educations,
       technicalSkills,
+      technicalSkillsOrderByIds,
     } = this.state;
 
     return (
       <Fragment>
         <Header />
         <Personal {...this.personalInfo} />
-        <Abilities technicalSkills={technicalSkills} />
+        <Abilities
+          technicalSkills={technicalSkills}
+          technicalSkillsOrderByIds={technicalSkillsOrderByIds}
+        />
         <Careers careers={careers} />
         <Educations educations={educations} />
         <Projects />
