@@ -35,6 +35,7 @@ class App extends Component {
         .props
         .firebase
         .getResume();
+
       this.handleResumeRequestSuccess({
         resume
       });
@@ -87,6 +88,7 @@ class App extends Component {
     personal_info,
     careers,
     educations,
+    projects,
     technical_skills,
   }) => {
     const technicalSkillsMeta = collections_meta.find(({ collectionName }) => {
@@ -97,6 +99,7 @@ class App extends Component {
       ...this.extractPersonalInfo(personal_info[0]),
       careers,
       educations,
+      projects,
       technicalSkills: technical_skills,
       technicalSkillsOrderByIds: technicalSkillsMeta.skillsOrderByIds,
     };
@@ -106,6 +109,7 @@ class App extends Component {
     const {
       careers,
       educations,
+      projects,
       technicalSkills,
       technicalSkillsOrderByIds,
     } = this.state;
@@ -120,7 +124,7 @@ class App extends Component {
         />
         <Careers careers={careers} />
         <Educations educations={educations} />
-        <Projects />
+        <Projects projects={projects} />
         <Footer />
       </Fragment>
   );
