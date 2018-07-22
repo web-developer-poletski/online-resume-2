@@ -5,9 +5,8 @@ import {
 } from '../../ui';
 
 export default function Projects(props) {
-  return ( <
-    Section title = "Projects" >
-    <
-    /Section>
+  return (
+    <Section title = "Projects" >
+    </Section>
   );
 }
