@@ -1,11 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import SectionBody from '../SectionBody';
-import SectionContainer from '../SectionContainer';
-import SectionTitle from '../SectionTitle';
-import SectionSubtitle from '../SectionSubtitle';
-import SectionWrapper from '../SectionWrapper';
+// ----- STYLED COMPONENTS START -----
+Section.Body = styled.div `
+  display: flex;
+  flex-flow: ${({ align }) => {
+    if (align === 'vertical') {
+      return 'column'
+    }
+
+    return 'row';
+  }};
+`;
+
+Section.Body.displayName = 'Section.Body';
+
+Section.Container = styled.div `
+  margin: 0 auto;
+  max-width: 800px;
+`;
+
+Section.Container.displayName = 'Section.Container';
+
+Section.Title = styled.h2 `
+  font-size: 24px;
+`;
+
+Section.Title.displayName = 'Section.Title';
+
+Section.Subtitle = styled.h3 `
+  flex: 100%;
+  font-size: 20px;
+`;
+
+Section.Subtitle.displayName = 'Section.Subtitle';
+
+Section.Wrapper = styled.section ``;
+
+Section.Wrapper.displayName = 'Section.Wrapper';
+// ----- STYLED COMPONENTS END -----
 
 Section.propTypes = {
   children: PropTypes.oneOfType([
@@ -21,21 +55,21 @@ Section.defaultProps = {
   title: '',
 };
 
-Section.Title = SectionTitle;
-Section.Subtitle = SectionSubtitle;
-
-export default function Section(props) {
-  const { children, title } = props;
+export default function Section({
+  align,
+  children,
+  title,
+}) {
   return (
-    <SectionWrapper>
-      <SectionContainer>
-        {title && <SectionTitle>{title}</SectionTitle>}
+    <Section.Wrapper>
+      <Section.Container>
+        {title && <Section.Title>{title}</Section.Title>}
         
-        <SectionBody align={props.align}>
+        <Section.Body align={align}>
           {children}
-        </SectionBody>
+        </Section.Body>
       
-      </SectionContainer>
-    </SectionWrapper>
+      </Section.Container>
+    </Section.Wrapper>
   );
 }
