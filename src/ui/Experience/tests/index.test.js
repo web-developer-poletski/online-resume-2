@@ -40,4 +40,30 @@ describe('<Experience />', () => {
     const wrapper = render(<Experience experienceURLText="my-experience" />);
     expect(wrapper.text()).toContain('my-experience');
   });
+
+  describe('Experience styled components', () => {
+    it('<Experience.Wrapper /> renders without crashing', () => {
+      shallow(<Experience.Wrapper />);
+    });
+
+    it('<Experience.Title /> renders without crashing', () => {
+      shallow(<Experience.Title />);
+    });
+
+    it('<Experience.Brief /> renders without crashing', () => {
+      shallow(<Experience.Brief />);
+    });
+
+    it('<Experience.BriefDetail /> renders without crashing', () => {
+      shallow(<Experience.BriefDetail />);
+    });
+
+    it('<Experience.Description /> renders without crashing', () => {
+      shallow(<Experience.Description />);
+    });
+
+    it('<Experience.URL /> renders without crashing', () => {
+      shallow(<Experience.URL />);
+    });
+  });
 });

@@ -2,51 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const ExperienceWrapper = styled.div`
+
+// ----- STYLED COMPONENTS START -----
+Experience.Wrapper = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
 `;
+Experience.Wrapper.displayName = 'Experience.Wrapper';
 
-ExperienceWrapper.displayName = 'ExperienceWrapper';
-
-
-const ExperienceBrief = styled.h4`
+Experience.Brief = styled.h4`
   flex: 75%;
   order: 2;
   margin-bottom: 12px;
 `;
+Experience.Brief.displayName = 'Experience.Brief';
 
-ExperienceBrief.displayName = 'ExperienceBrief';
-
-
-const ExperienceTitle = styled.h4`
-  flex: 25%;
-  order: 1;
-  margin-bottom: 12px;
-`;
-
-ExperienceTitle.displayName = 'ExperienceTitle';
-
-
-const ExperienceBriefDetail = styled.p`
+Experience.BriefDetail = styled.p`
   flex: 75%;
   order: 3;
   margin: 0 0 8px 25%;
 `;
+Experience.BriefDetail.displayName = 'Experience.BriefDetail';
 
-ExperienceBriefDetail.displayName = 'ExperienceBriefDetail';
-
-
-const ExperienceDescription = styled.p`
+Experience.Description = styled.p`
   flex: 75%;
   order: 4;
   margin: 0 0 0 25%;
 `;
+Experience.Description.displayName = 'Experience.Description';
 
-ExperienceDescription.displayName = 'ExperienceDescription';
+Experience.Title = styled.h4`
+  flex: 25%;
+  order: 1;
+  margin-bottom: 12px;
+`;
+Experience.Title.displayName = 'Experience.Title';
 
-const ExperienceURL = styled.a.attrs({
+Experience.URL = styled.a.attrs({
   href: ({ employerURL }) => employerURL || '',
 })`
   flex: 75%;
@@ -55,8 +48,8 @@ const ExperienceURL = styled.a.attrs({
   text-decoration: none;
   color: inherit;
 `;
-
-ExperienceDescription.displayName = 'ExperienceURL';
+Experience.URL.displayName = 'Experience.URL';
+// ----- STYLED COMPONENTS END -----
 
 export const propTypes = {
   id: PropTypes.string.isRequired,
@@ -90,14 +83,14 @@ export default function Experience({
   experienceURLText,
 }) {
   return (
-    <ExperienceWrapper>
-      <ExperienceTitle>{title}</ExperienceTitle>
-      <ExperienceBrief>{brief}</ExperienceBrief>
-      <ExperienceBriefDetail>{briefDetail}</ExperienceBriefDetail>
-      <ExperienceDescription>{description}</ExperienceDescription>
-      <ExperienceURL href={experienceURL}>
+    <Experience.Wrapper>
+      <Experience.Title>{title}</Experience.Title>
+      <Experience.Brief>{brief}</Experience.Brief>
+      <Experience.BriefDetail>{briefDetail}</Experience.BriefDetail>
+      <Experience.Description>{description}</Experience.Description>
+      <Experience.URL href={experienceURL}>
         {experienceURLText}
-      </ExperienceURL>
-    </ExperienceWrapper>
+      </Experience.URL>
+    </Experience.Wrapper>
   );
 } 
