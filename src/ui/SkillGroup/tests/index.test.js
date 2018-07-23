@@ -65,7 +65,7 @@ describe('<SkillGroup />', () => {
     })).toBe(true);
   });
 
-  describe('Section styled components', () => {
+  describe('SkillGroup styled components', () => {
     it('<SkillGroup.Wrapper /> renders without crashing', () => {
       shallow(<SkillGroup.Wrapper />);
     });

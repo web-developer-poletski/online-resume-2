@@ -38,7 +38,7 @@ describe('<Skill />', () => {
     expect(wrapper.find(EmptyStar)).toHaveLength(emptyStarCount);
   });
 
-  describe('Section styled components', () => {
+  describe('Skill styled components', () => {
     it('<Skill.Wrapper /> renders without crashing', () => {
       shallow(<Skill.Wrapper />);
     });
