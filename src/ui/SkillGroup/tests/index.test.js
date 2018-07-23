@@ -64,4 +64,18 @@ describe('<SkillGroup />', () => {
       return renderedSkill.prop('id') === id;
     })).toBe(true);
   });
+
+  describe('Section styled components', () => {
+    it('<SkillGroup.Wrapper /> renders without crashing', () => {
+      shallow(<SkillGroup.Wrapper />);
+    });
+
+    it('<SkillGroup.Title /> renders without crashing', () => {
+      shallow(<SkillGroup.Title />);
+    });
+
+    it('<SkillGroup.List /> renders without crashing', () => {
+      shallow(<SkillGroup.List />);
+    });
+  });
 });

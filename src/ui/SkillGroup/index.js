@@ -4,26 +4,23 @@ import styled from 'styled-components';
 
 import Skill, { propTypes as skillPropTypes } from '../Skill';
 
-export const SkillGroupWrapper = styled.div`
+SkillGroup.Wrapper = styled.div`
   width: 100%;
 `;
+SkillGroup.Wrapper.displayName = 'SkillGroup.Wrapper';
 
-SkillGroupWrapper.displayName = 'SkillGroupWrapper';
-
-export const SkillGroupTitle = styled.h3`
+SkillGroup.Title = styled.h3`
   font-size: 20px;
 `;
+SkillGroup.Title.displayName = 'SkillGroup.Title';
 
-SkillGroupTitle.displayName = 'SkillGroupTitle';
-
-export const SkillGroupList = styled.ul`
+SkillGroup.List = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
   columns: 2;
 `;
-
-SkillGroupList.displayName = 'SkillGroupList';
+SkillGroup.List.displayName = 'SkillGroupList';
 
 export const propTypes = {
   title: PropTypes.string,
@@ -38,9 +35,6 @@ export const defaultProps = {
 SkillGroup.propTypes = propTypes;
 SkillGroup.defaultProps = defaultProps;
 
-SkillGroup.Title = SkillGroupTitle;
-SkillGroup.List = SkillGroupList;
-
 export default function SkillGroup(props) {
   let skillsData = props.skills;
 
@@ -53,11 +47,11 @@ export default function SkillGroup(props) {
   let skills = skillsData.map((props) => <Skill key={props.id} {...props} />);
 
   return (
-    <SkillGroupWrapper>
-      <SkillGroupTitle>{props.title}</SkillGroupTitle>
-      <SkillGroupList>
+    <SkillGroup.Wrapper>
+      <SkillGroup.Title>{props.title}</SkillGroup.Title>
+      <SkillGroup.List>
         {skills}
-      </SkillGroupList>
-    </SkillGroupWrapper>
+      </SkillGroup.List>
+    </SkillGroup.Wrapper>
   );
 }
