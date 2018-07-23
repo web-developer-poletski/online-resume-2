@@ -37,4 +37,18 @@ describe('<Skill />', () => {
     const wrapper = shallow(<Skill points={skillPoints} />);
     expect(wrapper.find(EmptyStar)).toHaveLength(emptyStarCount);
   });
+
+  describe('Section styled components', () => {
+    it('<Skill.Wrapper /> renders without crashing', () => {
+      shallow(<Skill.Wrapper />);
+    });
+
+    it('<Skill.Name /> renders without crashing', () => {
+      shallow(<Skill.Name />);
+    });
+
+    it('<Skill.Points /> renders without crashing', () => {
+      shallow(<Skill.Points />);
+    });
+  });
 });

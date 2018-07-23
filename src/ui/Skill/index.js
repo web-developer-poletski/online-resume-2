@@ -1,11 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import SkillWrapper from '../SkillWrapper';
-import SkillName from '../SkillName';
-import SkillPoints from '../SkillPoints';
 import EmptyStar from '../EmptyStar';
 import FullStar from '../FullStar';
+
+// ----- STYLED COMPONENTS START -----
+Skill.Wrapper = styled.li`
+  display: flex;
+  justify-content: space-between;
+`;
+Skill.Wrapper.displayName = 'Skill.Wrapper';
+
+Skill.Name = styled.span`
+  flex: 1;
+`;
+Skill.Name.displayName = 'Skill.Name';
+
+Skill.Points = styled.span`
+  flex: 1;
+  text-align: right;
+`;
+Skill.Points.displayName = 'Skill.Points';
+// ----- STYLED COMPONENTS END -----
 
 export const propTypes = {
   id: PropTypes.string,
@@ -40,9 +57,9 @@ export default function Skill({ name, points }) {
   }
 
   return (
-    <SkillWrapper>
-      <SkillName>{name}</SkillName>
-      <SkillPoints>{stars}</SkillPoints>
-    </SkillWrapper>
+    <Skill.Wrapper>
+      <Skill.Name>{name}</Skill.Name>
+      <Skill.Points>{stars}</Skill.Points>
+    </Skill.Wrapper>
   );
 }
