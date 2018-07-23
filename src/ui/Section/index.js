@@ -13,31 +13,26 @@ Section.Body = styled.div `
     return 'row';
   }};
 `;
-
 Section.Body.displayName = 'Section.Body';
 
 Section.Container = styled.div `
   margin: 0 auto;
   max-width: 800px;
 `;
-
 Section.Container.displayName = 'Section.Container';
 
 Section.Title = styled.h2 `
   font-size: 24px;
 `;
-
 Section.Title.displayName = 'Section.Title';
 
 Section.Subtitle = styled.h3 `
   flex: 100%;
   font-size: 20px;
 `;
-
 Section.Subtitle.displayName = 'Section.Subtitle';
 
 Section.Wrapper = styled.section ``;
-
 Section.Wrapper.displayName = 'Section.Wrapper';
 // ----- STYLED COMPONENTS END -----
 
