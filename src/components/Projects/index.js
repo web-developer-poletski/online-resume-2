@@ -1,12 +1,7 @@
 import React from 'react';
 
-import {
-  Section
-} from '../../ui';
+import { Section } from '../../ui';
 
 export default function Projects(props) {
-  return (
-    <Section title = "Projects" >
-    </Section>
-  );
+  return (<Section title="Projects" ></Section>);
 }
