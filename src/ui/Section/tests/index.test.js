@@ -23,4 +23,26 @@ describe('<Section />', () => {
     const wrapper = render(<Section title = "Section A" />);
     expect(wrapper.text()).toContain('Section A');
   });
+
+  describe('Section styled components', () => {
+    it('<Section.Wrapper /> renders without crashing', () => {
+      shallow(<Section.Wrapper />);
+    });
+
+    it('<Section.Container /> renders without crashing', () => {
+      shallow(<Section.Container />);
+    });
+
+    it('<Section.Title /> renders without crashing', () => {
+      shallow(<Section.Title />);
+    });
+
+    it('<Section.Subtitle /> renders without crashing', () => {
+      shallow(<Section.Subtitle />);
+    });
+
+    it('<Section.Body /> renders without crashing', () => {
+      shallow(<Section.Body />);
+    });
+  });
 });
