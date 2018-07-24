@@ -19,34 +19,35 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.handleResumeRequest();
+    this.fetchResume();
   }
 
   get personalInfo() {
     return this.extractPersonalInfo(this.state);
   }
 
-  handleResumeRequest = async () => {
+  fetchResume = async () => {
     this.setState({
       isLoading: true
     });
+
     try {
       const resume = await this
         .props
         .firebase
         .getResume();
 
-      this.handleResumeRequestSuccess({
+      this.handleResumeFetchSuccess({
         resume
       });
     } catch (err) {
-      this.handleResumeRequestFail({
+      this.handleResumeFetchFail({
         message: err.message
       });
     }
   }
 
-  handleResumeRequestSuccess = ({
+  handleResumeFetchSuccess = ({
     resume
   }) => {
     this.setState({
@@ -55,7 +56,7 @@ class App extends Component {
     });
   }
 
-  handleResumeRequestFail = ({
+  handleResumeFetchFail = ({
     message
   }) => {
     this.setState({
