@@ -38,6 +38,12 @@ export const defaultProps = {
 Skill.propTypes = propTypes;
 Skill.defaultProps = defaultProps;
 
+/**
+ * 
+ * @param {object} props
+ * @param {string} [props.name='']
+ * @param {number} [props.points=0]
+ */
 export default function Skill({ name, points }) {
   let fullStarToRenderLeft = points;
   let emptyStarToRenderLeft = 5 - points;
