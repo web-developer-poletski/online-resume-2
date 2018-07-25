@@ -28,7 +28,10 @@ export default function Project({
   return (
     <div id={id}>
       <h3>{projectName}</h3>
-      <img src={projectImageURL} />
+      <img
+        alt=""
+        src={projectImageURL}
+      />
       <p>{description}</p>
       {projectURL &&
         <a href={projectURL}>{projectURLText}</a>
