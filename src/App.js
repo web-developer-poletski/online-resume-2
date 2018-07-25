@@ -1,7 +1,4 @@
-import React, {
-  Component,
-  Fragment
-} from 'react';
+import React, {Component, Fragment} from 'react';
 
 import {
   Abilities,
@@ -12,6 +9,8 @@ import {
   Header,
   Footer
 } from './components';
+import {sortCollectionByIds} from './helpers';
+import { SkillGroup } from './ui';
 
 class App extends Component {
   state = {
@@ -26,10 +25,8 @@ class App extends Component {
     return this.extractPersonalInfo(this.state);
   }
 
-  fetchResume = async () => {
-    this.setState({
-      isLoading: true
-    });
+  fetchResume = async() => {
+    this.setState({isLoading: true});
 
     try {
       const resume = await this
@@ -37,51 +34,28 @@ class App extends Component {
         .firebase
         .getResume();
 
-      this.handleResumeFetchSuccess({
-        resume
-      });
+      this.handleResumeFetchSuccess({resume});
     } catch (err) {
-      this.handleResumeFetchFail({
-        message: err.message
-      });
+      this.handleResumeFetchFail({message: err.message});
     }
   }
 
-  handleResumeFetchSuccess = ({
-    resume
-  }) => {
+  handleResumeFetchSuccess = ({resume}) => {
     this.setState({
       isLoading: false,
       ...this.mapResumeToState(resume)
     });
   }
 
-  handleResumeFetchFail = ({
-    message
-  }) => {
-    this.setState({
-      isLoading: false,
-      errMessage: message
-    });
+  handleResumeFetchFail = ({message}) => {
+    this.setState({isLoading: false, errMessage: message});
   }
 
   /**
    * Extracts required person`s fields from a person storing object
    */
-  extractPersonalInfo = ({
-    firstName,
-    lastName,
-    personalStatement,
-    location,
-    photoURL
-  }) => {
-    return {
-      firstName,
-      lastName,
-      personalStatement,
-      location,
-      photoURL
-    };
+  extractPersonalInfo = ({firstName, lastName, personalStatement, location, photoURL}) => {
+    return {firstName, lastName, personalStatement, location, photoURL};
   }
 
   mapResumeToState = ({
@@ -90,9 +64,9 @@ class App extends Component {
     careers,
     educations,
     projects,
-    technical_skills,
+    technical_skills
   }) => {
-    const technicalSkillsMeta = collections_meta.find(({ collectionName }) => {
+    const technicalSkillsMeta = collections_meta.find(({collectionName}) => {
       return collectionName === 'technical_skills';
     });
 
@@ -101,35 +75,35 @@ class App extends Component {
       careers,
       educations,
       projects,
-      technicalSkills: technical_skills,
-      technicalSkillsOrderByIds: technicalSkillsMeta.skillsOrderByIds,
+      technicalSkills: sortCollectionByIds(
+        technical_skills,
+        technicalSkillsMeta.skillsOrderByIds
+      ),
     };
   }
 
   render() {
-    const {
-      careers,
-      educations,
-      projects,
-      technicalSkills,
-      technicalSkillsOrderByIds,
-    } = this.state;
+    const {careers, educations, projects, technicalSkills} = this.state;
 
     return (
       <Fragment>
-        <Header />
-        <Personal {...this.personalInfo} />
-        <Abilities
-          technicalSkills={technicalSkills}
-          technicalSkillsOrderByIds={technicalSkillsOrderByIds}
-        />
-        <Careers careers={careers} />
-        <Educations educations={educations} />
-        <Projects projects={projects} />
-        <Footer />
+        <Header/>
+        <Personal {...this.personalInfo}/>
+
+        <Abilities>
+          <SkillGroup
+            title="Techical skills"
+            skills={technicalSkills}
+          />
+        </Abilities>
+
+        <Careers careers={careers}/>
+        <Educations educations={educations}/>
+        <Projects projects={projects}/>
+        <Footer/>
       </Fragment>
-  );
-}
+    );
+  }
 }
 
 export default App;

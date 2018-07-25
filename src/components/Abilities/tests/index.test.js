@@ -9,8 +9,14 @@ describe('<Ability />', () => {
     shallow(<Abilities />);
   });
 
-  it('renders correct number of skills groups', () => {
-    const wrapper = shallow(<Abilities />);
-    expect(wrapper.find(SkillGroup)).toHaveLength(1);
+  it('renders children', () => {
+    const wrapper = shallow(
+      <Abilities>
+        <div id="1"></div>
+        <div id="2"></div>
+      </Abilities>
+    );
+
+    expect(wrapper.children()).toHaveLength(2);
   });
 });

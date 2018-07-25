@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Skill, { propTypes as skillPropTypes } from '../Skill';
 
+// ----- STYLED COMPONENT START -----
 SkillGroup.Wrapper = styled.div`
   width: 100%;
 `;
@@ -21,11 +22,11 @@ SkillGroup.List = styled.ul`
   columns: 2;
 `;
 SkillGroup.List.displayName = 'SkillGroupList';
+// ----- STYLED COMPONENTS END -----
 
 export const propTypes = {
   title: PropTypes.string,
   skills: PropTypes.arrayOf(PropTypes.shape(skillPropTypes)).isRequired,
-  skillsOrderByIds: PropTypes.arrayOf(PropTypes.string),
 };
 
 export const defaultProps = {
@@ -35,20 +36,22 @@ export const defaultProps = {
 SkillGroup.propTypes = propTypes;
 SkillGroup.defaultProps = defaultProps;
 
+/**
+ * 
+ * @param {object} props
+ * @param {string} [props.title]
+ * @param {Object[]} [props.skills="[]"]
+ * @param {string} props.skills[].id Skill id
+ * @param {string} props.skills[].name Skill name
+ * @param {number} props.skills[].points Skill score
+ */
 export default function SkillGroup(props) {
-  let skillsData = props.skills;
-
-  if (Array.isArray(props.skillsOrderByIds)) {
-    skillsData = props.skillsOrderByIds.map((skillId, indx, arr) => {
-      return skillsData.find(({ id }) => id === skillId );
-    });
-  }
-
-  let skills = skillsData.map((props) => <Skill key={props.id} {...props} />);
+  const skills = props.skills.map((skill) => <Skill key={skill.id} {...skill} />);
 
   return (
     <SkillGroup.Wrapper>
-      <SkillGroup.Title>{props.title}</SkillGroup.Title>
+      {props.title && <SkillGroup.Title>{props.title}</SkillGroup.Title>}
+
       <SkillGroup.List>
         {skills}
       </SkillGroup.List>

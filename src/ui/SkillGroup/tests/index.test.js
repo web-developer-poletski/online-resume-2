@@ -47,24 +47,6 @@ describe('<SkillGroup />', () => {
     expect(wrapper.find(Skill)).toHaveLength(skills.length);
   });
 
-  it('renders skills in defined order', () => {
-    const skillsOrderByIds = ['2', '3', '1', '5', '4'];
-
-    const wrapper = shallow(
-      <SkillGroup
-        skills={skills}
-        skillsOrderByIds={skillsOrderByIds}
-      />
-    );
-
-    const renderedSkills = wrapper.find(Skill);
-
-    expect(skillsOrderByIds.every((id, indx) => {
-      const renderedSkill = renderedSkills.at(indx);
-      return renderedSkill.prop('id') === id;
-    })).toBe(true);
-  });
-
   describe('SkillGroup styled components', () => {
     it('<SkillGroup.Wrapper /> renders without crashing', () => {
       shallow(<SkillGroup.Wrapper />);

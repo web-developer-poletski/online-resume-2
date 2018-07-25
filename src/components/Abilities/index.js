@@ -3,29 +3,18 @@ import PropTypes from 'prop-types';
 
 import {
   Section,
-  SkillGroup,
 } from '../../ui';
 
 export const propTypes = {
-  technicalSkills: PropTypes.array.isRequired,
-  technicalSkillsOrderByIds: PropTypes.array,
-};
-
-export const defaultProps = {
-  technicalSkills: [],
+  children: PropTypes.element,
 };
 
 export default function Abilities({
-  technicalSkills,
-  technicalSkillsOrderByIds,
+  children,
 }) {
   return (
     <Section title="Abilities">
-      <SkillGroup
-        title="Technical Skills"
-        skills={technicalSkills}
-        skillsOrderByIds={technicalSkillsOrderByIds}
-      />
+      {children}
     </Section>
   );
 }
