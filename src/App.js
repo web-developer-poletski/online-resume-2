@@ -64,10 +64,15 @@ class App extends Component {
     careers,
     educations,
     projects,
+    socials,
     technical_skills
   }) => {
-    const technicalSkillsMeta = collections_meta.find(({collectionName}) => {
+    const technicalSkillsMeta = collections_meta.find(({ collectionName }) => {
       return collectionName === 'technical_skills';
+    });
+
+    const socialsMeta = collections_meta.find(({ collectionName }) => {
+      return collectionName === 'socials';
     });
 
     return {
@@ -75,6 +80,10 @@ class App extends Component {
       careers,
       educations,
       projects,
+      socials: sortCollectionByIds(
+        socials,
+        socialsMeta.itemsOrderByIds,
+      ),
       technicalSkills: sortCollectionByIds(
         technical_skills,
         technicalSkillsMeta.skillsOrderByIds

@@ -23,6 +23,7 @@ export const resumeConfig = {
     'careers',
     'educations',
     'projects',
+    'socials',
     'technical_skills',
   ],
 }
