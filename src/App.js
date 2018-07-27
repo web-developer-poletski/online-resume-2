@@ -82,11 +82,11 @@ class App extends Component {
       projects,
       socials: sortCollectionByIds(
         socials,
-        socialsMeta.itemsOrderByIds,
+        socialsMeta.itemsOrderById,
       ),
       technicalSkills: sortCollectionByIds(
         technical_skills,
-        technicalSkillsMeta.skillsOrderByIds
+        technicalSkillsMeta.itemsOrderById
       ),
     };
   }
