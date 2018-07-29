@@ -2,6 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
+SocialMobile.propTypes = {
+  mobile: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]).isRequired,
+};
+
+SocialMobile.defaultProps = {
+  mobile: '',
+};
+
+export function SocialMobile({ mobile }) {
+  return (<div>{mobile}</div>);
+}
+
+Social.Mobile = SocialMobile;
+
 SocialEmail.propTypes = {
   email: PropTypes.string.isRequired,
 };
@@ -31,6 +48,7 @@ Social.Email = SocialEmail;
 export function getSocialByType({ type, ...props }) {
   return {
     email: <SocialEmail {...props} />,
+    mobile: <SocialMobile {...props} />,
   }[type];
 }
 
