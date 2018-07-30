@@ -6,6 +6,7 @@ import { wrap } from 'module';
 
 describe('<Social />', () => {
   const email = 'some@email.service';
+  const facebookProfileRef = 'https://facebook.com/profile';
   const linkedinProfileRef = 'https://linkedin.com/profile';
   const mobile = '+64 (123)456-7890';
 
@@ -53,5 +54,21 @@ describe('<Social />', () => {
 
   it('exposes a renderable component for linkedin', () => {
     shallow(<Social.Linkedin reference={linkedinProfileRef} />);
+  });
+
+  it('render facebook profile reference', () => {
+    const properties = { reference: facebookProfileRef };
+    const wrapper = render(<Social type="facebook" properties={properties} />);
+    expect(wrapper.text()).toContain(facebookProfileRef);
+  });
+
+  it('renders a link to facebook profile', () => {
+    const properties = { reference: facebookProfileRef };
+    const wrapper = render(<Social type="facebook" properties={properties} />);
+    expect(wrapper.find(`a[href="${facebookProfileRef}"]`)).toHaveLength(1);
+  });
+
+  it('exposes a renderable component for linkedin', () => {
+    shallow(<Social.Facebook reference={facebookProfileRef} />);
   });
 });

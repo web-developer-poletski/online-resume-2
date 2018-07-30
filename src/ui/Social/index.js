@@ -45,6 +45,25 @@ export function SocialEmail({ email }) {
 
 Social.Email = SocialEmail;
 
+SocialFacebook.propTypes = {
+  reference: PropTypes.string.isRequired,
+};
+
+SocialFacebook.defaultProps = {
+  reference: '',
+};
+
+/**
+ * Facebook Social
+ *
+ * @param {object} props
+ * @param {string} props.reference Facebook profile url
+ */
+export function SocialFacebook({ reference }) {
+  return <a href={reference}>{reference}</a>;
+}
+
+Social.Facebook = SocialFacebook;
 
 SocialLinkedin.propTypes = {
   reference: PropTypes.string.isRequired,
@@ -56,7 +75,7 @@ SocialLinkedin.defaultProps = {
 /**
  * 
  * @param {object} props
- * @param {string} props.reference
+ * @param {string} props.reference LinkeIn profile url
  */
 export function SocialLinkedin({ reference }) {
   return <a href={reference}>{reference}</a>;
@@ -73,6 +92,7 @@ Social.Linkedin = SocialLinkedin;
 export function getSocialByType({ type, ...props }) {
   return {
     email: <SocialEmail {...props} />,
+    facebook: <SocialFacebook {...props} />,
     linkedin: <SocialLinkedin {...props} />,
     mobile: <SocialMobile {...props} />,
   }[type];
