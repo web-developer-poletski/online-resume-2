@@ -13,6 +13,12 @@ SocialMobile.defaultProps = {
   mobile: '',
 };
 
+/**
+ * Mobile Social
+ *
+ * @param {object} props
+ * @param {string|number} props.mobile
+ */
 export function SocialMobile({ mobile }) {
   return (<div>{mobile}</div>);
 }
@@ -39,6 +45,25 @@ export function SocialEmail({ email }) {
 
 Social.Email = SocialEmail;
 
+
+SocialLinkedin.propTypes = {
+  reference: PropTypes.string.isRequired,
+};
+
+SocialLinkedin.defaultProps = {
+  reference: '',
+};
+/**
+ * 
+ * @param {object} props
+ * @param {string} props.reference
+ */
+export function SocialLinkedin({ reference }) {
+  return <a href={reference}>{reference}</a>;
+}
+
+Social.Linkedin = SocialLinkedin;
+
 /**
  * Returns specific social component
  *
@@ -48,6 +73,7 @@ Social.Email = SocialEmail;
 export function getSocialByType({ type, ...props }) {
   return {
     email: <SocialEmail {...props} />,
+    linkedin: <SocialLinkedin {...props} />,
     mobile: <SocialMobile {...props} />,
   }[type];
 }
