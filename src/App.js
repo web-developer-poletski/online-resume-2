@@ -9,7 +9,7 @@ import {
   Socials,
 } from './components';
 import {sortCollectionByIds} from './helpers';
-import { Footer, Header, SkillGroup } from './ui';
+import { Footer, Header, NavBar, SkillGroup } from './ui';
 
 class App extends Component {
   state = {
@@ -101,7 +101,10 @@ class App extends Component {
 
     return (
       <Fragment>
-        <Header/>
+        <Header>
+          <NavBar />
+        </Header>
+
         <Personal {...this.personalInfo}/>
 
         <Abilities>

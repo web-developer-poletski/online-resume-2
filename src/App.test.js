@@ -13,7 +13,7 @@ import {
   Projects,
 } from './components';
 
-import { Footer, Header } from './ui';
+import { Footer, Header, NavBar } from './ui';
 
 
 describe('<App />', () => {
@@ -23,38 +23,39 @@ describe('<App />', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('contains component Header', () => {
+  describe('contains components:', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.find(Header)).toHaveLength(1);
-  });
 
-  it('contains component Abilities', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(Abilities)).toHaveLength(1);
-  });
-
-  it('contains component Careers', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(Careers)).toHaveLength(1);
-  });
-
-  it('contains component Educations', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(Educations)).toHaveLength(1);
-  });
-
-  it('contains component Personal', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(Personal)).toHaveLength(1);
-  });
-
-  it('contains component Projects', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(Projects)).toHaveLength(1);
-  });
-
-  it('contains component Footer', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(Footer)).toHaveLength(1);
+    it('contains component Header', () => {
+      expect(wrapper.find(Header)).toHaveLength(1);
+    });
+  
+    it('contains component NavBar', () => {
+      expect(wrapper.find(NavBar)).toHaveLength(1);
+    });
+  
+    it('contains component Abilities', () => {
+      expect(wrapper.find(Abilities)).toHaveLength(1);
+    });
+  
+    it('contains component Careers', () => {
+      expect(wrapper.find(Careers)).toHaveLength(1);
+    });
+  
+    it('contains component Educations', () => {
+      expect(wrapper.find(Educations)).toHaveLength(1);
+    });
+  
+    it('contains component Personal', () => {
+      expect(wrapper.find(Personal)).toHaveLength(1);
+    });
+  
+    it('contains component Projects', () => {
+      expect(wrapper.find(Projects)).toHaveLength(1);
+    });
+  
+    it('contains component Footer', () => {
+      expect(wrapper.find(Footer)).toHaveLength(1);
+    });
   });
 });
