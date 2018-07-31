@@ -12,8 +12,9 @@ import {
   Educations,
   Personal,
   Projects,
-  Footer,
 } from './components';
+
+import { Footer } from './ui';
 
 
 describe('<App />', () => {
