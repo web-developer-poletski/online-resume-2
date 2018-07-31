@@ -40,35 +40,35 @@ describe('<Social />', () => {
     shallow(<Social.Email email="some@email.here" />);
   });
 
-  it('renders linkedin profile reference', () => {
-    const properties = { reference: linkedinProfileRef };
+  it('renders linkedin profile url', () => {
+    const properties = { url: linkedinProfileRef };
     const wrapper = render(<Social type="linkedin" properties={properties} />);
     expect(wrapper.text()).toContain(linkedinProfileRef);
   });
 
   it('renders a link to linkedin profile', () => {
-    const properties = { reference: linkedinProfileRef };
+    const properties = { url: linkedinProfileRef };
     const wrapper = render(<Social type="linkedin" properties={properties} />);
     expect(wrapper.find(`a[href="${linkedinProfileRef}"]`)).toHaveLength(1);
   });
 
   it('exposes a renderable component for linkedin', () => {
-    shallow(<Social.Linkedin reference={linkedinProfileRef} />);
+    shallow(<Social.Linkedin url={linkedinProfileRef} />);
   });
 
-  it('render facebook profile reference', () => {
-    const properties = { reference: facebookProfileRef };
+  it('render facebook profile url', () => {
+    const properties = { url: facebookProfileRef };
     const wrapper = render(<Social type="facebook" properties={properties} />);
     expect(wrapper.text()).toContain(facebookProfileRef);
   });
 
   it('renders a link to facebook profile', () => {
-    const properties = { reference: facebookProfileRef };
+    const properties = { url: facebookProfileRef };
     const wrapper = render(<Social type="facebook" properties={properties} />);
     expect(wrapper.find(`a[href="${facebookProfileRef}"]`)).toHaveLength(1);
   });
 
   it('exposes a renderable component for linkedin', () => {
-    shallow(<Social.Facebook reference={facebookProfileRef} />);
+    shallow(<Social.Facebook url={facebookProfileRef} />);
   });
 });

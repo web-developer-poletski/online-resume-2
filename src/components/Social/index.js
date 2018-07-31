@@ -46,39 +46,39 @@ export function SocialEmail({ email }) {
 Social.Email = SocialEmail;
 
 SocialFacebook.propTypes = {
-  reference: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 SocialFacebook.defaultProps = {
-  reference: '',
+  url: '',
 };
 
 /**
  * Facebook Social
  *
  * @param {object} props
- * @param {string} props.reference Facebook profile url
+ * @param {string} props.url Facebook profile url
  */
-export function SocialFacebook({ reference }) {
-  return <a href={reference}>{reference}</a>;
+export function SocialFacebook({ url }) {
+  return <a href={url}>{url}</a>;
 }
 
 Social.Facebook = SocialFacebook;
 
 SocialLinkedin.propTypes = {
-  reference: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 SocialLinkedin.defaultProps = {
-  reference: '',
+  url: '',
 };
 /**
  * 
  * @param {object} props
- * @param {string} props.reference LinkeIn profile url
+ * @param {string} props.url LinkeIn profile url
  */
-export function SocialLinkedin({ reference }) {
-  return <a href={reference}>{reference}</a>;
+export function SocialLinkedin({ url }) {
+  return <a href={url}>{url}</a>;
 }
 
 Social.Linkedin = SocialLinkedin;
@@ -102,6 +102,12 @@ export const propTypes = {
   type: PropTypes.string.isRequired,
   properties: PropTypes.shape({
     email: PropTypes.string,
+    facebook: PropTypes.string,
+    linkedin: PropTypes.string,
+    mobile: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string,
+    ]),
   }).isRequired,
 };
 
