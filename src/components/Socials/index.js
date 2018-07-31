@@ -2,8 +2,16 @@
  * @module Socials
  */
 import React from 'react';
-import Social, { propTypes as socialPropTypes } from '../Social';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+import Social, { propTypes as socialPropTypes } from '../Social';
+
+
+Socials.Wrapper = styled.div`
+  width: 100%;
+  columns: 2;
+`;
 
 export const propTypes = {
   socials: PropTypes.arrayOf(PropTypes.shape(socialPropTypes)).isRequired,
@@ -26,5 +34,5 @@ export default function Socials(props) {
   const socials = props.socials.map((social) =>
     <Social key={social.id} {...social} />);
 
-  return (<div>{socials}</div>);
+  return (<Socials.Wrapper>{socials}</Socials.Wrapper>);
 }
