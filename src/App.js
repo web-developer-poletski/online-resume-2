@@ -6,6 +6,7 @@ import {
   Educations,
   Personal,
   Projects,
+  Socials,
   Header,
   Footer
 } from './components';
@@ -92,7 +93,13 @@ class App extends Component {
   }
 
   render() {
-    const {careers, educations, projects, technicalSkills} = this.state;
+    const {
+      careers,
+      educations,
+      projects,
+      socials,
+      technicalSkills
+    } = this.state;
 
     return (
       <Fragment>
@@ -109,7 +116,10 @@ class App extends Component {
         <Careers careers={careers}/>
         <Educations educations={educations}/>
         <Projects projects={projects}/>
-        <Footer/>
+
+        <Footer>
+          <Socials socials={socials} />
+        </Footer>
       </Fragment>
     );
   }
