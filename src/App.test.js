@@ -6,7 +6,6 @@ import {
 
 import App from './App';
 import {
-  Header,
   Abilities,
   Careers,
   Educations,
@@ -14,7 +13,7 @@ import {
   Projects,
 } from './components';
 
-import { Footer } from './ui';
+import { Footer, Header } from './ui';
 
 
 describe('<App />', () => {

@@ -7,10 +7,9 @@ import {
   Personal,
   Projects,
   Socials,
-  Header,
 } from './components';
 import {sortCollectionByIds} from './helpers';
-import { Footer, SkillGroup } from './ui';
+import { Footer, Header, SkillGroup } from './ui';
 
 class App extends Component {
   state = {
