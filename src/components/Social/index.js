@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 SocialMobile.propTypes = {
   mobile: PropTypes.oneOfType([
     PropTypes.number,
@@ -22,7 +21,6 @@ SocialMobile.defaultProps = {
 export function SocialMobile({ mobile }) {
   return (<div>{mobile}</div>);
 }
-
 Social.Mobile = SocialMobile;
 
 SocialEmail.propTypes = {
@@ -42,7 +40,6 @@ SocialEmail.defaultProps = {
 export function SocialEmail({ email }) {
   return <a href={`mailto:${email}`}>{email}</a>;
 }
-
 Social.Email = SocialEmail;
 
 SocialFacebook.propTypes = {
@@ -62,7 +59,6 @@ SocialFacebook.defaultProps = {
 export function SocialFacebook({ url }) {
   return <a href={url}>{url}</a>;
 }
-
 Social.Facebook = SocialFacebook;
 
 SocialLinkedin.propTypes = {
@@ -80,7 +76,6 @@ SocialLinkedin.defaultProps = {
 export function SocialLinkedin({ url }) {
   return <a href={url}>{url}</a>;
 }
-
 Social.Linkedin = SocialLinkedin;
 
 /**
