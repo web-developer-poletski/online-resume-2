@@ -16,6 +16,35 @@ export const firebaseAppConfig = {
   messagingSenderId: REACT_APP_MESSAGING_SENDER_ID
 }
 
+export const appConfig = {
+  navItems: [
+    {
+      title: 'Personal',
+      link: '#personal',
+    },
+    {
+      title: 'Abilities',
+      link: '#abilities',
+    },
+    {
+      title: 'Careers',
+      link: '#careers',
+    },
+    {
+      title: 'Educations',
+      link: '#educations',
+    },
+    {
+      title: 'Projects',
+      link: '#projects',
+    },
+    {
+      title: 'Socials',
+      link: '#socials',
+    },
+  ],
+}
+
 export const resumeConfig = {
   collectionsNames: [
     'collections_meta',
