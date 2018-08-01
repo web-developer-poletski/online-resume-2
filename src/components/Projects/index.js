@@ -22,5 +22,5 @@ export default function Projects(props) {
     return (<Project key={project.id} {...project} />);
   });
 
-  return (<Section title="Projects" >{projects}</Section>);
+  return (<Section id="projects" title="Projects" >{projects}</Section>);
 }

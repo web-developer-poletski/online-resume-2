@@ -42,5 +42,5 @@ export default function Careers(props) {
 	  experienceURLText={employerURLText}
 	/>);
 
-	return <Section title="Careers">{careers}</Section>;
+	return <Section id="careers" title="Careers">{careers}</Section>;
 }

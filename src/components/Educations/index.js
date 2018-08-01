@@ -42,5 +42,5 @@ export default function Educations(props) {
 	  experienceURLText={providerURLText}
   />);
 
-  return (<Section title="Educations">{educations}</Section>);
+  return (<Section id="educations" title="Educations">{educations}</Section>);
 }

@@ -42,6 +42,7 @@ Section.propTypes = {
     PropTypes.element,
     PropTypes.string,
   ]),
+  id: PropTypes.string,
   align: PropTypes.string,
   title: PropTypes.string,
 };
@@ -51,12 +52,13 @@ Section.defaultProps = {
 };
 
 export default function Section({
+  id,
   align,
   children,
   title,
 }) {
   return (
-    <Section.Wrapper>
+    <Section.Wrapper id={id} >
       <Section.Container>
         {title && <Section.Title>{title}</Section.Title>}
         

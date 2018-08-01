@@ -13,7 +13,7 @@ export default function Abilities({
   children,
 }) {
   return (
-    <Section title="Abilities">
+    <Section id="abilities" title="Abilities">
       {children}
     </Section>
   );

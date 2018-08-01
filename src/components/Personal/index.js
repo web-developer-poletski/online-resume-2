@@ -26,7 +26,7 @@ Personal.defaultProps = {
 
 export default function Personal(props) {
   return (
-    <Section>
+    <Section id="personal">
       <Column>
         <Section.Subtitle>
           About

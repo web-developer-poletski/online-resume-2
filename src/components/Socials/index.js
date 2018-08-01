@@ -34,5 +34,5 @@ export default function Socials(props) {
   const socials = props.socials.map((social) =>
     <Social key={social.id} {...social} />);
 
-  return (<Socials.Wrapper>{socials}</Socials.Wrapper>);
+  return (<Socials.Wrapper id="socials">{socials}</Socials.Wrapper>);
 }
