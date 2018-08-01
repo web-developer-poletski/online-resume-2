@@ -8,8 +8,9 @@ import {
   Projects,
   Socials,
 } from './components';
-import {sortCollectionByIds} from './helpers';
+import { sortCollectionByIds } from './helpers';
 import { Footer, Header, NavBar, SkillGroup } from './ui';
+import { appConfig } from './config';
 
 class App extends Component {
   state = {
@@ -99,10 +100,12 @@ class App extends Component {
       technicalSkills
     } = this.state;
 
+    const { navItems } = appConfig;
+
     return (
       <Fragment>
         <Header>
-          <NavBar />
+          <NavBar navItems={navItems} />
         </Header>
 
         <Personal {...this.personalInfo}/>
