@@ -1,12 +1,19 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-export const propTypes = {};
-// export const defaultProps = {};
+export const propTypes = {
+  title: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+};
+
+export const defaultProps = {
+  title: '',
+  link: '#',
+};
 
 NavItem.propTypes = propTypes;
-// NavItem.defaultProps = defaultProps;
+NavItem.defaultProps = defaultProps;
 
-export default function NavItem() {
-  return (<div></div>);
+export default function NavItem({ title, link }) {
+  return (<li><a href={link}>{title}</a></li>);
 }
