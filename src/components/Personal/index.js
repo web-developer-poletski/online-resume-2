@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Section } from '../../ui';
+import { Image, Section } from '../../ui';
 
 const Column = styled.div `
   flex: 1;
