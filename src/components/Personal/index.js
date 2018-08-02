@@ -35,7 +35,7 @@ export default function Personal(props) {
       </Column>
 
       <Column>
-        <img src={props.photoURL} alt=""/>
+        <Image url={props.photoURL} alt=""/>
       </Column>
 
       <Column>
