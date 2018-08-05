@@ -24,14 +24,19 @@ Section.Container = styled.div `
   margin: 0 auto;
   max-width: 800px;
   ${media.phone`
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 38px 15px 0 15px;
     max-width: 100%;
   `}
 `;
 Section.Container.displayName = 'Section.Container';
 
 Section.Title = styled.h2 `
+  margin-top: 0;
+  ${media.phone`
+    margin: 0 -20px 0 -20px;
+    padding: 8px 20px 8px 20px;
+  `}
+  background-color: rgb(220, 180, 180);
   font-size: 24px;
 `;
 Section.Title.displayName = 'Section.Title';
@@ -42,7 +47,9 @@ Section.Subtitle = styled.h3 `
 `;
 Section.Subtitle.displayName = 'Section.Subtitle';
 
-Section.Wrapper = styled.section ``;
+Section.Wrapper = styled.section `
+  margin-bottom: -10px;
+`;
 Section.Wrapper.displayName = 'Section.Wrapper';
 // ----- STYLED COMPONENTS END -----
 
