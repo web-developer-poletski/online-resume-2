@@ -9,6 +9,7 @@ Header.Wrapper = styled.div`
   top: 0;
   left: 0;
   right: 0;
+  height: 40px;
 `;
 Header.Wrapper.displayName = 'Header.Wrapper';
 

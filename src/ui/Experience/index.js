@@ -67,7 +67,7 @@ Experience.Title = styled.h4`
   `}
   ${media.phone`
     flex: none;
-    margin: 0;
+    margin: 14px 0 0 0;
     font-size: 20px;
   `}
 `;
