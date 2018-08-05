@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { media } from '../../helpers';
+
 // ----- STYLED COMPONENTS START -----
 Section.Body = styled.div `
   display: flex;
@@ -18,6 +20,11 @@ Section.Body.displayName = 'Section.Body';
 Section.Container = styled.div `
   margin: 0 auto;
   max-width: 800px;
+  ${media.phone`
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 100%;
+  `}
 `;
 Section.Container.displayName = 'Section.Container';
 
