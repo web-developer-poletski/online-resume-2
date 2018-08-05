@@ -1,4 +1,5 @@
-import React, {Component, Fragment} from 'react';
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
 import {
   Abilities,
@@ -12,7 +13,18 @@ import { sortCollectionByIds } from './helpers';
 import { Footer, Header, NavBar, SkillGroup } from './ui';
 import { appConfig } from './config';
 
+
+const Wrapper = styled.div`
+  color: rgb(60, 60, 60);
+`;
+Wrapper.displayName = 'App.Wrapper';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    App.Wrapper = Wrapper;
+  }
+
   state = {
     isLoading: false
   }
@@ -103,7 +115,7 @@ class App extends Component {
     const { navItems } = appConfig;
 
     return (
-      <Fragment>
+      <App.Wrapper>
         <Header>
           <NavBar navItems={navItems} />
         </Header>
@@ -124,7 +136,7 @@ class App extends Component {
         <Footer>
           <Socials socials={socials} />
         </Footer>
-      </Fragment>
+      </App.Wrapper>
     );
   }
 }
