@@ -29,6 +29,9 @@ Detail.Text = styled.div`
 `;
 Detail.Text.displayName = 'Detail.Text';
 
+Personal.Statement = styled.p`
+  margin-bottom: 0;
+`;
 
 Personal.propTypes = {
   firstName: PropTypes.string.isRequired,
@@ -72,7 +75,9 @@ export default function Personal(props) {
         <Section.Subtitle>
           About
         </Section.Subtitle>
-        <p>{props.personalStatement}</p>
+        <Personal.Statement>
+          {props.personalStatement}
+        </Personal.Statement>
       </Column>
     </Section>
   );
