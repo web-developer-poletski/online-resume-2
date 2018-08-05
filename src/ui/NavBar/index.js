@@ -6,8 +6,12 @@ import NavItem from '../NavItem';
 
 
 NavBar.NavItemList = styled.ul`
-  padding: 0;
+  margin: 0;
+  padding: 8px 0;
   list-style: none;
+  overflow-x: scroll;
+  width: 100%;
+  white-space: nowrap;
 `;
 NavBar.NavItemList.displayName = 'NavBar.NavItemList';
 

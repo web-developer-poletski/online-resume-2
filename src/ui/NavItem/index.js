@@ -11,6 +11,7 @@ NavItem.Wrapper.displayName = 'NavItem.Wrapper';
 
 NavItem.Link = styled.a`
   text-decoration: none;
+  color: rgb(230, 230, 230);
 `;
 NavItem.Link.displayName = 'NavItem.Link';
 
