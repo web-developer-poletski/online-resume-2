@@ -1,3 +1,5 @@
+export { media } from './styledComponents';
+
 /**
  * Sorts a collection of items containing "id" property
  * to mirror the order of ids in an array passed as the second argument
