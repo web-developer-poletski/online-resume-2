@@ -14,6 +14,9 @@ Section.Body = styled.div `
 
     return 'row';
   }};
+  ${media.phone`
+    display: block;
+  `}
 `;
 Section.Body.displayName = 'Section.Body';
 

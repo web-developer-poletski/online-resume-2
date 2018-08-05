@@ -2,11 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { media } from '../../helpers';
 import { Image, Section } from '../../ui';
 
 const Column = styled.div `
   flex: 1;
+  ${media.phone`
+    flex: none;
+  `}
 `;
+
+const Detail = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+Detail.displayName = 'Detail';
+
+Detail.Name = styled.div`
+  flex: 1;
+`;
+Detail.Name.displayName = 'Detail.Name';
+
+Detail.Text = styled.div`
+  flex: 2;
+  text-align: right;
+`;
+Detail.Text.displayName = 'Detail.Text';
+
 
 Personal.propTypes = {
   firstName: PropTypes.string.isRequired,
@@ -28,13 +50,6 @@ export default function Personal(props) {
   return (
     <Section id="personal">
       <Column>
-        <Section.Subtitle>
-          About
-        </Section.Subtitle>
-        <p>{props.personalStatement}</p>
-      </Column>
-
-      <Column>
         <Image url={props.photoURL} alt=""/>
       </Column>
 
@@ -42,11 +57,22 @@ export default function Personal(props) {
         <Section.Subtitle>
           Details
         </Section.Subtitle>
-        <p>Name</p>
-        <p>{props.firstName} {props.lastName}</p>
+        <Detail>
+          <Detail.Name>Name</Detail.Name>
+          <Detail.Text>{props.firstName} {props.lastName}</Detail.Text>
+        </Detail>
 
-        <p>Location</p>
-        <p>{props.location}</p>
+        <Detail>
+          <Detail.Name>Location</Detail.Name>
+          <Detail.Text>{props.location}</Detail.Text>
+        </Detail>
+      </Column>
+
+      <Column>
+        <Section.Subtitle>
+          About
+        </Section.Subtitle>
+        <p>{props.personalStatement}</p>
       </Column>
     </Section>
   );
