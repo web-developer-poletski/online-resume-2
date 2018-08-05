@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { media } from '../../helpers';
 import Skill, { propTypes as skillPropTypes } from '../Skill';
 
 // ----- STYLED COMPONENT START -----
@@ -20,6 +21,9 @@ SkillGroup.List = styled.ul`
   padding: 0;
   list-style: none;
   columns: 2;
+  ${media.phone`
+    columns: 1;
+  `}
 `;
 SkillGroup.List.displayName = 'SkillGroupList';
 // ----- STYLED COMPONENTS END -----
