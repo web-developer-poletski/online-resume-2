@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, render, shallow } from 'enzyme';
+import { render, shallow } from 'enzyme';
 
 import Experience from '../index';
 
@@ -29,7 +29,7 @@ describe('<Experience />', () => {
   });
 
   it('renders experience url as a link', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Experience experienceURL="http://my-experience.me" />);
 
     expect(wrapper.find('a[href="http://my-experience.me"]')).toHaveLength(1);

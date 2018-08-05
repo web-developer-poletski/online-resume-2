@@ -25,7 +25,7 @@ Experience.Brief = styled.h4`
   `}
   ${media.phone`
     flex: none;
-    margin: 8px 0 4px 0;
+    margin: 10px 0 0 0;
   `}
 `;
 Experience.Brief.displayName = 'Experience.Brief';
@@ -38,9 +38,10 @@ Experience.BriefDetail = styled.p`
   `}
   ${media.phone`
     flex: none;
-    margin: 0 0 4px 0;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
   `}
-  font-size: 12px;
+  font-size: 11px;
 `;
 Experience.BriefDetail.displayName = 'Experience.BriefDetail';
 
@@ -52,7 +53,7 @@ Experience.Description = styled.p`
   `}
   ${media.phone`
     flex: none;
-    margin: 0 0 4px 0;
+    margin: 0 0 10px 0;
     max-height: 
   `}
 `;
@@ -85,7 +86,7 @@ Experience.URL = styled.a.attrs({
     margin-left: 0;
   `}
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
   color: inherit;
 `;
