@@ -29,11 +29,10 @@ describe('<Experience />', () => {
   });
 
   it('renders experience url as a link', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <Experience experienceURL="http://my-experience.me" />);
 
-    expect(wrapper.containsMatchingElement(
-      <a href="http://my-experience.me"></a>)).toBe(true);
+    expect(wrapper.find('a[href="http://my-experience.me"]')).toHaveLength(1);
   });
 
   it('renders experience url text', () => {
