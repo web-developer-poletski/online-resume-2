@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 
 import {
   Abilities,
@@ -116,6 +117,18 @@ class App extends Component {
 
     return (
       <App.Wrapper>
+        <Helmet>
+          <meta
+            name="viewport"
+            content="
+              width=device-width,
+              initial-scale=1,
+              shrink-to-fit=no,
+              user-scalable=no
+            "
+          />
+        </Helmet>
+
         <Header>
           <NavBar navItems={navItems} />
         </Header>
