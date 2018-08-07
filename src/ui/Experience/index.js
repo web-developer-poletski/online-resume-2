@@ -17,34 +17,6 @@ Experience.Wrapper = styled.div`
 `;
 Experience.Wrapper.displayName = 'Experience.Wrapper';
 
-Experience.Brief = styled.h4`
-  ${media.desktop`
-    flex: 75%;
-    order: 2;
-    margin: 0 0 0 12px;
-  `}
-  ${media.phone`
-    flex: none;
-    margin: 10px 0 0 0;
-  `}
-`;
-Experience.Brief.displayName = 'Experience.Brief';
-
-Experience.BriefDetail = styled.p`
-  ${media.desktop`
-    flex: 75%;
-    order: 3;
-    margin: 0 0 8px 25%;
-  `}
-  ${media.phone`
-    flex: none;
-    margin: 0 0 10px 0;
-    text-transform: uppercase;
-  `}
-  font-size: 11px;
-`;
-Experience.BriefDetail.displayName = 'Experience.BriefDetail';
-
 Experience.Description = styled.p`
   ${media.desktop`
     flex: 75%;
@@ -59,6 +31,11 @@ Experience.Description = styled.p`
 `;
 Experience.Description.displayName = 'Experience.Description';
 
+Experience.Time = styled.div`
+  
+`;
+Experience.Time.displayName = 'Experience.Time';
+
 Experience.Title = styled.h4`
   ${media.desktop`
     flex: 25%;
@@ -72,69 +49,68 @@ Experience.Title = styled.h4`
   `}
 `;
 Experience.Title.displayName = 'Experience.Title';
-
-Experience.URL = styled.a.attrs({
-  href: ({ employerURL }) => employerURL || '',
-})`
-  ${media.desktop`
-    flex: 75%;
-    order: 5; 
-    margin-left: 25%;
-  `}
-  ${media.phone`
-    flex: none;
-    margin-left: 0;
-  `}
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-  color: inherit;
-`;
-Experience.URL.displayName = 'Experience.URL';
 // ----- STYLED COMPONENTS END -----
 
 export const propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  brief: PropTypes.string.isRequired,
-  briefDetail: PropTypes.string,
-  startDate: PropTypes.instanceOf(Date),
-  endDate: PropTypes.instanceOf(Date),
+  startDate: PropTypes.number,
+  endDate: PropTypes.number,
   description: PropTypes.string.isRequired,
-  experienceURL: PropTypes.string,
-  experienceURLText: PropTypes.string,
+  place: PropTypes.string.isRequired,
+  placeURL: PropTypes.string.isRequired,
 };
 
 Experience.propTypes = propTypes;
 
+
+function getDataStr(seconds) {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+
+  const date = new Date(seconds*1000);
+  const year = date.getFullYear();
+  const month = months[date.getMonth()];
+
+  return `${month} ${year}`;
+}
+
 export const defaultProps = {
   id: '',
   title: '',
-  brief: '',
   description: '',
+  place: '',
+  placeURL: '',
 };
 
 Experience.defaultProps = defaultProps;
 
 export default function Experience({
   title,
-  brief,
-  briefDetail,
+  startDate,
+  endDate,
   description,
-  experienceURL,
-  experienceURLText,
+  place,
+  placeURL,
 }) {
+  const startDateStr = getDataStr(startDate);
   return (
     <Experience.Wrapper>
       <Experience.Title>{title}</Experience.Title>
-      <Experience.Brief>{brief}</Experience.Brief>
-      <Experience.BriefDetail>{briefDetail}</Experience.BriefDetail>
+      <Experience.Time>{startDateStr}</Experience.Time>
       <Experience.Description>{description}</Experience.Description>
-      <Experience.URL href={experienceURL}>
-        &#128279;
-        &nbsp;
-        {experienceURLText}
-      </Experience.URL>
     </Experience.Wrapper>
   );
 } 
