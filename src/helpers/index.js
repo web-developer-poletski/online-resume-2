@@ -12,3 +12,53 @@ export { media } from './styledComponents';
 export function sortCollectionByIds(collection, sortedIds) {
   return sortedIds.map((sortedId) => collection.find(({ id }) => id === sortedId));
 }
+
+/**
+ * Turns experience dates into milliseconds
+ *
+ * @param {object} experience
+ * @param {object} experience.startDate
+ * @param {object} experience.endDate
+ *
+ * @returns {number} Date in milliseconds
+ */
+export function mapExperiences(experiences) {
+  return experiences.map((experience) => {
+    const mappedExperience = experience;
+    const { startDate, endDate } = experience;
+
+    switch (typeof startDate) {
+      case 'object':
+        mappedExperience.startDate = timestampToMsec(startDate);
+        break;
+      case 'string':
+        mappedExperience.startDate = startDate;
+        break;
+      default:
+    }
+
+    switch (typeof endDate) {
+      case 'object':
+        mappedExperience.endDate = timestampToMsec(endDate);
+        break;
+      case 'string':
+        mappedExperience.endDate = endDate;
+        break;
+      default:
+    }
+
+    return mappedExperience;
+  });
+}
+
+/**
+ * Turns timestamp into milliseconds
+ *
+ * @param {object} timestamp
+ * @param {number} timestamp.seconds
+ *
+ * @returns {number}
+ */
+export function timestampToMsec({ seconds }) {
+  return seconds * 1000;
+}

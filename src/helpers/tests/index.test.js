@@ -1,4 +1,8 @@
-import { sortCollectionByIds } from '../index';
+import {
+  timestampToMsec,
+  mapExperiences,
+  sortCollectionByIds,
+} from '../index';
 
 describe('helpers', () => {
   describe('sortCollectionByids', () => {
@@ -55,6 +59,59 @@ describe('helpers', () => {
       expect(
         sortCollectionByIds(collection, caseSortedIds),
       ).toEqual(expectedCollection);
+    });
+  });
+
+  describe('timestampToMsec()', () => {
+    it('returns date in milliseconds', () => {
+      const timestamp = { seconds: 1200 };
+      expect(timestampToMsec(timestamp)).toEqual(1200*1000);
+    });
+  });
+
+  describe('mapExperiences()', () => {
+    it('maps experiences', () => {
+      const experiences = [
+        {
+          id: '1',
+          name: 'some',
+          startDate: { seconds: 1200 },
+        },
+        {
+          id: '2',
+          name: 'another',
+          startDate: { seconds: 0 },
+          endDate: { seconds: 0 },
+        },
+        {
+          id: '3',
+          name: 'one more',
+          startDate: { seconds: 2400 },
+          endDate: 'current',
+        }
+      ];
+
+      const expected = [
+        {
+          id: '1',
+          name: 'some',
+          startDate: 1200000,
+        },
+        {
+          id: '2',
+          name: 'another',
+          startDate: 0,
+          endDate: 0,
+        },
+        {
+          id: '3',
+          name: 'one more',
+          startDate: 2400000,
+          endDate: 'current',
+        }
+      ];
+
+      expect(mapExperiences(experiences)).toEqual(expected);
     });
   });
 });
