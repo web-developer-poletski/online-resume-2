@@ -35,6 +35,7 @@ export function mapExperiences(experiences) {
         mappedExperience.startDate = startDate;
         break;
       default:
+        mapExperiences.startDate = '';
     }
 
     switch (typeof endDate) {
@@ -45,6 +46,7 @@ export function mapExperiences(experiences) {
         mappedExperience.endDate = endDate;
         break;
       default:
+        mapExperiences.endDate = '';
     }
 
     return mappedExperience;

@@ -31,6 +31,7 @@ export default function Careers(props) {
 		description,
 		employerURL,
 		employerURLText,
+		startDate,
 	}) => <Experience
 	  key={id}
 	  id={id}
@@ -39,7 +40,8 @@ export default function Careers(props) {
 	  briefDetail={employmentType}
 	  description={description}
 	  experienceURL={employerURL}
-	  experienceURLText={employerURLText}
+		experienceURLText={employerURLText}
+		startDate={startDate}
 	/>);
 
 	return <Section id="careers" title="Careers">{careers}</Section>;

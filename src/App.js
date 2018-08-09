@@ -10,7 +10,7 @@ import {
   Projects,
   Socials,
 } from './components';
-import { sortCollectionByIds } from './helpers';
+import { mapExperiences, sortCollectionByIds } from './helpers';
 import { Footer, Header, NavBar, SkillGroup } from './ui';
 import { appConfig } from './config';
 
@@ -90,8 +90,8 @@ class App extends Component {
 
     return {
       ...this.extractPersonalInfo(personal_info[0]),
-      careers,
-      educations,
+      careers: mapExperiences(careers),
+      educations: mapExperiences(educations),
       projects,
       socials: sortCollectionByIds(
         socials,

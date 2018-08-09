@@ -64,7 +64,7 @@ export const propTypes = {
 Experience.propTypes = propTypes;
 
 
-function getDataStr(seconds) {
+function getDataStr(msec) {
   const months = [
     'January',
     'February',
@@ -80,7 +80,7 @@ function getDataStr(seconds) {
     'December'
   ];
 
-  const date = new Date(seconds*1000);
+  const date = new Date(msec);
   const year = date.getFullYear();
   const month = months[date.getMonth()];
 
