@@ -54,17 +54,22 @@ Experience.Title.displayName = 'Experience.Title';
 export const propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  startDate: PropTypes.number,
-  endDate: PropTypes.number,
+  startDate: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]).isRequired,
+  endDate: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]).isRequired,
   description: PropTypes.string.isRequired,
   place: PropTypes.string.isRequired,
   placeURL: PropTypes.string.isRequired,
 };
-
 Experience.propTypes = propTypes;
 
 
-function getDataStr(msec) {
+function getDateFromMsec(msec) {
   const months = [
     'January',
     'February',
@@ -87,14 +92,23 @@ function getDataStr(msec) {
   return `${month} ${year}`;
 }
 
+function getDateStr(date) {
+  if (typeof date !== 'number') {
+    return date;
+  }
+  return getDateFromMsec(date);
+}
+
+
 export const defaultProps = {
   id: '',
   title: '',
   description: '',
   place: '',
   placeURL: '',
+  startDate: '',
+  endDate: '',
 };
-
 Experience.defaultProps = defaultProps;
 
 export default function Experience({
@@ -105,11 +119,12 @@ export default function Experience({
   place,
   placeURL,
 }) {
-  const startDateStr = getDataStr(startDate);
+  const startDateStr = getDateStr(startDate);
+  const endDateStr = getDateStr(endDate);
   return (
     <Experience.Wrapper>
       <Experience.Title>{title}</Experience.Title>
-      <Experience.Time>{startDateStr}</Experience.Time>
+      <Experience.Time>{startDateStr} {endDateStr}</Experience.Time>
       <Experience.Description>{description}</Experience.Description>
     </Experience.Wrapper>
   );
